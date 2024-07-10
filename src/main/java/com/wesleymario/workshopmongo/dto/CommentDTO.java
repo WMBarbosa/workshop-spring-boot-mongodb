@@ -1,6 +1,5 @@
 package com.wesleymario.workshopmongo.dto;
 
-import javax.xml.crypto.Data;
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.Date;
@@ -10,7 +9,7 @@ public class CommentDTO implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
-    private String comment;
+    private String text;
     private Date date;
     private AuthorDTO author;
 
@@ -19,17 +18,17 @@ public class CommentDTO implements Serializable {
     }
 
     public CommentDTO(String comment, Date date, AuthorDTO author) {
-        this.comment = comment;
+        this.text = comment;
         this.date = date;
         this.author = author;
     }
 
-    public String getComment() {
-        return comment;
+    public String getText() {
+        return text;
     }
 
-    public void setComment(String comment) {
-        this.comment = comment;
+    public void setText(String text) {
+        this.text = text;
     }
 
     public Date getDate() {
