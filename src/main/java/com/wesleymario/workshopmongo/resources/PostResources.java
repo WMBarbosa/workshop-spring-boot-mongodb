@@ -4,6 +4,7 @@ import com.wesleymario.workshopmongo.domain.Post;
 import com.wesleymario.workshopmongo.domain.User;
 import com.wesleymario.workshopmongo.dto.UserDTO;
 import com.wesleymario.workshopmongo.repository.PostRepository;
+import com.wesleymario.workshopmongo.resources.util.URL;
 import com.wesleymario.workshopmongo.services.PostService;
 import com.wesleymario.workshopmongo.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,4 +28,10 @@ public class PostResources {
         return ResponseEntity.ok().body(obj);
     }
 
+    @GetMapping("/titlesearch")
+    public ResponseEntity<List<Post>> findByTitle(@RequestParam(value = "text", defaultValue = "") String title) {
+        title = URL.decodeParam(title);
+        List<Post> list = service.findByTitle(title);
+        return ResponseEntity.ok().body(list);
+    }
 }
